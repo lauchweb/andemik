@@ -3,10 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Andemik</title>
 
@@ -17,10 +14,8 @@
 
   <meta name="robots" content="index, follow">
 
-  <!-- Replace site.com with the real domain -->
   <link rel="canonical" href="https://site.com/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Andemik">
   <meta
@@ -30,7 +25,6 @@
   <meta property="og:url" content="https://site.com/">
   <meta property="og:image" content="https://site.com/og.jpg">
 
-  <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Andemik">
   <meta
@@ -39,29 +33,28 @@
   >
   <meta name="twitter:image" content="https://site.com/og.jpg">
 
-  <meta name="theme-color" content="#f4f2ea">
-
   <style>
     :root {
-      --background: #f4f2ea;
-      --text: #171916;
-
       --page-margin: clamp(20px, 4vw, 64px);
       --image-gap: clamp(16px, 2vw, 32px);
-      --label-gap: 14px;
+      --label-gap: 12px;
+
+      --text: #111111;
+      --background: #ffffff;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      background: var(--background);
-    }
-
+    html,
     body {
       margin: 0;
       min-width: 320px;
+      min-height: 100%;
+    }
+
+    body {
       min-height: 100vh;
       min-height: 100svh;
 
@@ -69,9 +62,8 @@
       color: var(--text);
 
       font-family:
-        "Helvetica Neue",
-        Helvetica,
         Arial,
+        Helvetica,
         sans-serif;
 
       font-weight: 400;
@@ -81,12 +73,7 @@
 
     a {
       color: inherit;
-      text-decoration: none;
     }
-
-    /* -------------------------
-       Page
-    ------------------------- */
 
     .site {
       min-height: 100vh;
@@ -101,9 +88,7 @@
         calc(var(--page-margin) * 0.8);
     }
 
-    /* -------------------------
-       Header
-    ------------------------- */
+    /* Header */
 
     .header {
       display: flex;
@@ -111,18 +96,18 @@
     }
 
     .wordmark {
-      display: inline-block;
+      color: var(--text);
 
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1;
 
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+
+      text-decoration: none;
     }
 
-    /* -------------------------
-       Main
-    ------------------------- */
+    /* Main */
 
     main {
       display: flex;
@@ -145,49 +130,49 @@
     .section {
       display: block;
       min-width: 0;
+
+      color: var(--text);
+      text-align: center;
     }
 
     .image-wrap {
       width: 100%;
-      aspect-ratio: 4 / 3;
-
       overflow: hidden;
-
-      background: #e7e4da;
     }
 
     .section img {
       display: block;
 
       width: 100%;
-      height: 100%;
+      height: auto;
 
-      object-fit: cover;
-
-      transition:
-        transform 500ms cubic-bezier(.2, .65, .25, 1);
+      /*
+       * The image is used exactly as supplied.
+       * No background.
+       * No overlay.
+       * No tint.
+       * No hover scaling.
+       */
     }
 
     .section-label {
-      display: block;
+      display: inline-block;
 
       margin-top: var(--label-gap);
 
-      text-align: center;
+      color: var(--text);
 
-      font-size: 12px;
-      line-height: 1;
+      font-size: 11px;
+      line-height: 1.2;
 
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 400;
+      letter-spacing: 0.04em;
 
       text-transform: uppercase;
-    }
 
-    @media (hover: hover) {
-      .section:hover img {
-        transform: scale(1.015);
-      }
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
     }
 
     .section:focus-visible {
@@ -195,9 +180,7 @@
       outline-offset: 5px;
     }
 
-    /* -------------------------
-       Footer
-    ------------------------- */
+    /* Footer */
 
     .footer {
       display: grid;
@@ -205,15 +188,19 @@
 
       align-items: end;
 
-      font-size: 11px;
+      color: var(--text);
+
+      font-size: 10px;
       line-height: 1.2;
+
+      font-weight: 400;
       letter-spacing: 0.02em;
     }
 
     .footer-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
     }
 
     .footer-right {
@@ -223,11 +210,13 @@
     }
 
     .footer a {
-      transition: opacity 180ms ease;
+      color: var(--text);
+      text-decoration: none;
     }
 
     .footer a:hover {
-      opacity: 0.55;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .footer a:focus-visible {
@@ -235,9 +224,7 @@
       outline-offset: 4px;
     }
 
-    /* -------------------------
-       Mobile
-    ------------------------- */
+    /* Mobile */
 
     @media (max-width: 600px) {
       :root {
@@ -247,17 +234,11 @@
       }
 
       .wordmark {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .sections {
         max-width: none;
-      }
-
-      /* Keep Field and Lab side-by-side on mobile. */
-
-      .image-wrap {
-        aspect-ratio: 1 / 1.18;
       }
 
       .section-label {
@@ -265,7 +246,7 @@
       }
 
       .footer {
-        font-size: 10px;
+        font-size: 9px;
       }
 
       .footer-right {
@@ -280,22 +261,11 @@
       }
 
       .footer {
-        font-size: 9px;
+        font-size: 8px;
       }
 
       .footer-right {
         gap: 10px;
-      }
-    }
-
-    /* -------------------------
-       Reduced motion
-    ------------------------- */
-
-    @media (prefers-reduced-motion: reduce) {
-      .section img,
-      .footer a {
-        transition: none;
       }
     }
   </style>
@@ -330,14 +300,14 @@
           <div class="image-wrap">
             <img
               src="/field.jpg"
-              alt="Andemik fieldwork"
+              alt=""
               loading="eager"
               decoding="async"
             >
           </div>
 
           <span class="section-label">
-            Field
+            FIELD
           </span>
         </a>
 
@@ -350,14 +320,14 @@
           <div class="image-wrap">
             <img
               src="/lab.jpg"
-              alt="Andemik laboratory research"
+              alt=""
               loading="eager"
               decoding="async"
             >
           </div>
 
           <span class="section-label">
-            Lab
+            LAB
           </span>
         </a>
 
