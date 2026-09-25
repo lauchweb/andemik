@@ -16,6 +16,7 @@
 
   <link rel="canonical" href="https://site.com/">
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Andemik">
   <meta
@@ -25,6 +26,7 @@
   <meta property="og:url" content="https://site.com/">
   <meta property="og:image" content="https://site.com/og.jpg">
 
+  <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Andemik">
   <meta
@@ -35,12 +37,12 @@
 
   <style>
     :root {
+      --background: #ffffff;
+      --text: #111111;
+
       --page-margin: clamp(20px, 4vw, 64px);
       --image-gap: clamp(16px, 2vw, 32px);
       --label-gap: 12px;
-
-      --text: #111111;
-      --background: #ffffff;
     }
 
     * {
@@ -75,6 +77,10 @@
       color: inherit;
     }
 
+    /* -------------------------
+       Page
+    ------------------------- */
+
     .site {
       min-height: 100vh;
       min-height: 100svh;
@@ -88,7 +94,9 @@
         calc(var(--page-margin) * 0.8);
     }
 
-    /* Header */
+    /* -------------------------
+       Header
+    ------------------------- */
 
     .header {
       display: flex;
@@ -107,12 +115,16 @@
       text-decoration: none;
     }
 
-    /* Main */
+    /* -------------------------
+       Main
+    ------------------------- */
 
     main {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      padding-block: 8vh;
     }
 
     .sections {
@@ -145,14 +157,6 @@
 
       width: 100%;
       height: auto;
-
-      /*
-       * The image is used exactly as supplied.
-       * No background.
-       * No overlay.
-       * No tint.
-       * No hover scaling.
-       */
     }
 
     .section-label {
@@ -180,7 +184,9 @@
       outline-offset: 5px;
     }
 
-    /* Footer */
+    /* -------------------------
+       Footer
+    ------------------------- */
 
     .footer {
       display: grid;
@@ -206,7 +212,7 @@
     .footer-right {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 10px;
     }
 
     .footer a {
@@ -224,7 +230,13 @@
       outline-offset: 4px;
     }
 
-    /* Mobile */
+    .footer-dot {
+      user-select: none;
+    }
+
+    /* -------------------------
+       Mobile
+    ------------------------- */
 
     @media (max-width: 600px) {
       :root {
@@ -241,6 +253,10 @@
         max-width: none;
       }
 
+      main {
+        padding-block: 6vh;
+      }
+
       .section-label {
         font-size: 10px;
       }
@@ -250,7 +266,7 @@
       }
 
       .footer-right {
-        gap: 14px;
+        gap: 8px;
       }
     }
 
@@ -263,9 +279,15 @@
       .footer {
         font-size: 8px;
       }
+    }
 
-      .footer-right {
-        gap: 10px;
+    /* -------------------------
+       Reduced motion
+    ------------------------- */
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -347,6 +369,12 @@
         aria-label="Legal"
       >
         <a href="/terms.html">Terms</a>
+
+        <span
+          class="footer-dot"
+          aria-hidden="true"
+        >·</span>
+
         <a href="/privacy.html">Privacy</a>
       </nav>
 
